@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.http.HttpStatusCode;
 //import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 
@@ -36,22 +37,6 @@ public class PhotoController {
 
     @GetMapping("/photographers")
     public List<PEntity> getAllPEntities() {
-        //return new ResponseEntity<>();
-        //try {
-        //System.out.println(jp.get(0));
-        
-        // } catch (Exception e) {
-
-        // }
-
-        //System.out.println(jp.plist.get(0).getUid());
-        // try {
-        //     System.out.println(jp.plist.size());
-        //     System.out.println(jp.plist.get(0).getUid());
-        // } catch (Exception e) {
-        //     e.printStackTrace();
-        // }
-
         try {
             return service.getAllPEntity();
         } catch (Exception e) {
@@ -59,6 +44,25 @@ public class PhotoController {
             return null;
         }
     }
+
+    @GetMapping("/photographers/{pid}")  
+    public List<PEntity> getAllPEntitiesById(@PathVariable String pid) {
+        try {
+            return service.getAllPEntityById(Integer.valueOf(pid));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     
+    @GetMapping("/photographers/event/{type}")  
+    public List<PEntity> getAllPEntitiesByEventType(@PathVariable String type) {
+        try {
+            return service.getAllPEntityByEventType(type);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
 }

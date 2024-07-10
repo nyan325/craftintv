@@ -14,7 +14,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
 import com.craft.interview.entity.PEntity;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -85,4 +84,25 @@ public class PService {
         return plist;
     };
 
+    public List<PEntity> getAllPEntityById(long pid) throws IOException {
+        List<PEntity> plist =  new ArrayList<>();
+        plist = this.loadData();
+        for(int i=0; i<plist.size(); i++) {
+            if( plist.get(i).getId() != pid ) {
+                plist.remove(i);
+            } 
+        }
+        return plist;
+    }
+
+    public List<PEntity> getAllPEntityByEventType(String type) throws IOException {
+        List<PEntity> plist =  new ArrayList<>();
+        plist = this.loadData();
+        for(int i=0; i<plist.size(); i++) {
+            if( !plist.get(i).getEvent_type().contains(type) ) {
+                plist.remove(i);
+            } 
+        }
+        return plist;
+    }
 }
