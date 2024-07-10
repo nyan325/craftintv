@@ -22,6 +22,7 @@ public class PEntity {
     private String uid; //": "c7204a53-77be-4ba6-b446-8f92921060a0",
     private String password; //  "uDQXExV6pr",
     private String first_name; // "Lorenzo",
+    private String last_name;
     private List<String> event_type; // {
 
 }

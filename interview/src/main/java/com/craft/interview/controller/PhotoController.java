@@ -31,14 +31,33 @@ public class PhotoController {
     @Autowired
     private final PService service;
 
+    // @Autowired
+    // private final JsonProperties jp;
+
     @GetMapping("/photographers")
     public List<PEntity> getAllPEntities() {
         //return new ResponseEntity<>();
         //try {
-        return service.getAllPEntity();
+        //System.out.println(jp.get(0));
+        
         // } catch (Exception e) {
 
         // }
+
+        //System.out.println(jp.plist.get(0).getUid());
+        // try {
+        //     System.out.println(jp.plist.size());
+        //     System.out.println(jp.plist.get(0).getUid());
+        // } catch (Exception e) {
+        //     e.printStackTrace();
+        // }
+
+        try {
+            return service.getAllPEntity();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
     
 
