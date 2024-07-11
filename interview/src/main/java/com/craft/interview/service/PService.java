@@ -23,8 +23,8 @@ public class PService {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Value("classpath:data/p.json")
-    private Resource resourceFile;
+    //@Value("classpath:data/p.json")
+    //private Resource resourceFile;
 
     @Autowired
     private ResourceLoader resourceLoader;
